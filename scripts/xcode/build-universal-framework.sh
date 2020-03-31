@@ -47,3 +47,41 @@ if [ -d "${STRINGS_INPUT_FOLDER}" ]; then
   rm -rf "${STRINGS_OUTPUT_FOLDER}"
   cp -R "${STRINGS_INPUT_FOLDER}" "${STRINGS_OUTPUT_FOLDER}"
 fi
+@@ -18,7 +18,11 @@
+
+#import <Foundation/Foundation.h>
+
+<<<<<<< HEAD
+#import "FBSDKCoreKit+Internal.h"
+=======
+#import "FBSDKMonitorEntry.h"
+>>>>>>> upstream/unified-logging/monitor
+
+NS_ASSUME_NONNULL_BEGIN
+
+@ -33,13 +37,24 @@ NS_ASSUME_NONNULL_BEGIN
+ */
+@interface FBSDKMonitor : NSObject
+
+<<<<<<< HEAD
+=======
+// TODO: Add a store and a networker for storing logs locally and uploading to a remote endpoint
+// @property (nonatomic, weak, readonly) FBSDKMonitorStore *store;
+// @property (nonatomic, weak) FBSDKMonitorNetworker *networker;
+
+>>>>>>> upstream/unified-logging/monitor
+/**
+ Stores entry in local memory until a limit is reached or a flush is forced.
+ Will only record entries if the monitor is enabled.
+
+ Important: Should not be called directly.
+ */
+<<<<<<< HEAD
++ (void)record:(_Nonnull id<FBSDKMonitorEntry>)entry;
+=======
++ (void)record:(FBSDKMonitorEntry *)entry;
+>>>>>>> upstream/unified-logging/monitor
+
+/**
+ Enable entries to be recorded.
+
